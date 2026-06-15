@@ -9,7 +9,7 @@ export class Api {
     constructor(private http: HttpClient) { }
 
     // base_url = 'http://localhost:3000';
-    base_url = 'https://profile-server-myt3.onrender.com';
+    base_url = 'https://profile-server-ppet.onrender.com';
     
 
     appendHeader() {

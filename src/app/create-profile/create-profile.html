@@ -1,0 +1,52 @@
+<div class="container mt-5">
+
+  <!-- ADD BUTTON -->
+  <div class="d-flex justify-content-end mb-3">
+    <button class="btn btn-success" (click)="openAdd()">
+      + Add Profile
+    </button>
+  </div>
+
+  <!-- FORM CARD -->
+  <div class="card shadow p-4 mb-4">
+
+    <h5 class="mb-3">
+      {{ isEditMode ? 'Edit Profile' : 'Add Profile' }}
+    </h5>
+
+    <!-- IMAGE -->
+    <div class="text-center mb-3">
+      <img [src]="formUser.image || 'https://via.placeholder.com/120'" class="rounded-circle border" width="120"
+        height="120">
+
+      <input type="file" class="form-control mt-2" (change)="onImageChange($event)">
+    </div>
+
+    <!-- INPUTS -->
+    <input class="form-control mb-2" placeholder="Name" [(ngModel)]="formUser.name">
+    <input class="form-control mb-2" placeholder="Email" [(ngModel)]="formUser.email">
+    <input class="form-control mb-2" placeholder="Phone" [(ngModel)]="formUser.phoneNumber">
+    <textarea class="form-control mb-2" placeholder="Address" [(ngModel)]="formUser.address"></textarea>
+
+    <!-- BUTTONS -->
+    <div class="d-flex gap-2">
+
+      <button class="btn btn-primary" (click)="isEditMode ? updateProfile() : addProfile()">
+        {{ isEditMode ? 'Update' : 'Save' }}
+      </button>
+
+      <button class="btn btn-secondary" (click)="openAdd()">
+        Reset
+      </button>
+
+      <button class="btn btn-info text-white" routerLink="/">
+        Home
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+</div>

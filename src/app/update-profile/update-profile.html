@@ -1,0 +1,66 @@
+<div class="container mt-5">
+
+  <div class="card shadow p-4 mx-auto" style="max-width:600px">
+
+    <h3 class="text-center mb-4">Update Profile</h3>
+
+    <div class="text-center mb-3">
+
+      <img
+        [src]="user.image ? 'http://localhost:3000/' + user.image : 'https://via.placeholder.com/120'"
+        width="120"
+        height="120"
+        class="rounded-circle border"
+      >
+
+    </div>
+
+    <div class="mb-3">
+      <label>Name</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="user.name">
+    </div>
+
+    <div class="mb-3">
+      <label>Email</label>
+      <input
+        type="email"
+        class="form-control"
+        [(ngModel)]="user.email">
+    </div>
+
+    <div class="mb-3">
+      <label>Phone Number</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="user.phoneNumber">
+    </div>
+
+    <div class="mb-3">
+      <label>Address</label>
+      <textarea
+        class="form-control"
+        [(ngModel)]="user.address">
+      </textarea>
+    </div>
+
+    <div class="mb-3">
+      <label>Profile Image</label>
+      <input
+        type="file"
+        class="form-control"
+        (change)="onImageChange($event)">
+    </div>
+
+    <button
+      class="btn btn-primary w-100"
+      (click)="updateProfile()">
+      Update Profile
+    </button>
+
+  </div>
+
+</div>

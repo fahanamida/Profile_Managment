@@ -1,0 +1,72 @@
+<!-- LOADING -->
+<div *ngIf="loading" class="text-center mt-5">
+  <h4>Loading...</h4>
+</div>
+
+<div class="container py-5">
+
+  <!-- HEADER -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold">User Profiles</h2>
+
+    <button class="btn btn-success" routerLink="/create">
+      + Add Profile
+    </button>
+  </div>
+
+  <!-- USER LIST -->
+  <div class="row g-4">
+
+    <div class="col-md-4" *ngFor="let user of users">
+
+      <div class="card profile-card h-100 border-0 shadow">
+
+        <div class="card-body text-center">
+
+          <img [src]="'http://localhost:3000/' + user.image" alt="profile" class="profile-img mb-3">
+
+          <h4 class="fw-bold">{{ user.name }}</h4>
+
+          <hr>
+
+          <p class="mb-2">
+            <strong>Email:</strong><br>
+            {{ user.email }}
+          </p>
+
+          <p class="mb-2">
+            <strong>Phone:</strong><br>
+            {{ user.phoneNumber }}
+          </p>
+
+          <p class="mb-3">
+            <strong>Address:</strong><br>
+            {{ user.address }}
+          </p>
+
+          <div class="d-flex justify-content-center gap-2">
+
+            <button class="btn btn-primary" (click)="editProfile(user._id)">
+              Edit
+            </button>
+
+            <button class="btn btn-danger" (click)="deleteProfile(user._id)">
+              Delete
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- NO DATA -->
+  <div *ngIf="users.length === 0 && !loading" class="text-center mt-5">
+    <h4>No Profiles Found</h4>
+  </div>
+
+</div>

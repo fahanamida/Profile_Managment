@@ -34,13 +34,14 @@ export class Home implements OnInit {
 
   this.api.getProfile().subscribe({
     next: (res: any) => {
-      console.log(res);
 
-      this.users = res; // full array store cheyyuka
+      this.users = Array.isArray(res) ? res : [];
+
       this.loading = false;
     },
     error: (err) => {
       console.log(err);
+      this.users = [];
       this.loading = false;
     }
   });
